@@ -1,5 +1,64 @@
 # Client - Server (Single Thread)
 
+## Soal & Jawaban
+
+1. Membuat sebuah program server yang dapat menerima koneksi dari klien menggunakan protokol TCP. Server ini akan menerima pesan dari klien dan mengirimkan pesan balasan berisi jumlah karakter pada pesan tersebut. Gunakan port 12345 untuk server. Membuat analisa dari hasil program tersebut
+
+### Kode:
+
+import socket
+
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+HOST = 'localhost'
+PORT = 12345
+
+server_socket.bind((HOST, PORT))
+server_socket.listen(1)
+
+print("Waiting...")
+
+while True:
+    client_socket, client_address = server_socket.accept()
+    print("Connection from:", client_address)
+
+    data = client_socket.recv(1024)
+    message = data.decode()
+
+    character_count = len(message)
+    response = "Jumlah karakter: " + str(character_count)
+    
+    print("Request dari client :", character_count, "IP client :", client_address)
+    client_socket.sendall(response.encode())
+
+    client_socket.close()
+
+
+### Output
+
+
+2. Membuat sebuah program klien yang dapat terhubung ke server yang telah dibuat pada soal nomor 1. Klien ini akan mengirimkan pesan ke server berupa inputan dari pengguna dan menampilkan pesan balasan jumlah karakter yang diterima dari server. Membuat analisa dari hasil program tersebut
+
+### Kode:
+
+import socket
+
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+HOST = 'localhost'
+PORT = 12345
+
+client_socket.connect((HOST, PORT))
+
+pesan = input("Masukkan pesan: ")
+client_socket.sendall(pesan.encode())
+
+data = client_socket.recv(1024)
+print(data.decode())
+
+client_socket.close()
+
+### Output
+
 Untuk membuat implementasi aplikasi Client-Server Sederhana (Single Thread) pada Python, 
 dapat menggunakan modul socket dan threading yang sudah disediakan oleh Python.
 
@@ -13,15 +72,4 @@ threaded, di mana server hanya mampu melayani satu koneksi pada suatu waktu. Jik
 terdapat lebih dari satu koneksi yang masuk, maka koneksi tersebut akan diantre dan dilayani 
 secara berurutan. 
 
-# How to use 
-
-1. Buka dua terminal atau command prompt untuk menjalankan server dan client secara terpisah.
-2. Jalankan server pada salah satu terminal dengan menjalankan script Python server `python server.py` atau `python 2server.py` (sesuai program yang dibutuhkan) . Ini akan memulai server dan menunggu koneksi dari client.
-3. Setelah server berjalan, buka terminal atau command prompt kedua untuk menjalankan client.
-4. Jalankan client pada terminal kedua dengan menjalankan script Python client `python client.py` atau `python 2client.py` (sesuai program yang dibutuhkan).
-5. Setelah client berjalan, Anda akan diminta untuk memasukkan pesan. Masukkan pesan sesuai keinginan dan tekan Enter.
-6. Client akan mengirim pesan ke server dan menunggu respons dari server.
-7. Server akan menerima pesan, menghitung jumlah karakternya, dan mengirim kembali respons ke client.
-8. Client akan menerima respons dari server dan mencetaknya di terminal atau command prompt.
-9. Setelah proses selesai, server dan client akan menutup koneksi mereka masing-masing.
  
