@@ -16,9 +16,9 @@ secara berurutan.
 # How to use 
 
 1. Buka dua terminal atau command prompt untuk menjalankan server dan client secara terpisah.
-2. Jalankan server pada salah satu terminal dengan menjalankan script Python server `python server.py`. Ini akan memulai server dan menunggu koneksi dari klien.
+2. Jalankan server pada salah satu terminal dengan menjalankan script Python server `python server.py` atau `python 2server.py` (sesuai program yang dibutuhkan) . Ini akan memulai server dan menunggu koneksi dari client.
 3. Setelah server berjalan, buka terminal atau command prompt kedua untuk menjalankan client.
-4. Jalankan client pada terminal kedua dengan menjalankan script Python client `python client.py`.
+4. Jalankan client pada terminal kedua dengan menjalankan script Python client `python client.py` atau `python 2client.py` (sesuai program yang dibutuhkan).
 5. Setelah client berjalan, Anda akan diminta untuk memasukkan pesan. Masukkan pesan sesuai keinginan dan tekan Enter.
 6. Client akan mengirim pesan ke server dan menunggu respons dari server.
 7. Server akan menerima pesan, menghitung jumlah karakternya, dan mengirim kembali respons ke client.
