@@ -1,3 +1,5 @@
+# Client - Server (Single Thread)
+
 Untuk membuat implementasi aplikasi Client-Server Sederhana (Single Thread) pada Python, 
 dapat menggunakan modul socket dan threading yang sudah disediakan oleh Python.
 
