@@ -6,6 +6,7 @@
 
 ### Kode:
 
+```py
     import socket
 
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -31,13 +32,17 @@
         client_socket.sendall(response.encode())
 
         client_socket.close()
+```
 
 ### Output
+
+<img src="https://github.com/AzizImastara/socket-programming/blob/master/public/output-server.png" />
 
 2. Membuat sebuah program klien yang dapat terhubung ke server yang telah dibuat pada soal nomor 1. Klien ini akan mengirimkan pesan ke server berupa inputan dari pengguna dan menampilkan pesan balasan jumlah karakter yang diterima dari server. Membuat analisa dari hasil program tersebut
 
 ### Kode:
 
+```py
     import socket
 
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -54,8 +59,11 @@
     print(data.decode())
 
     client_socket.close()
+```
 
 ### Output
+
+<img src="https://github.com/AzizImastara/socket-programming/blob/master/public/output-client.png" />
 
 Untuk membuat implementasi aplikasi Client-Server Sederhana (Single Thread) pada Python,
 dapat menggunakan modul socket dan threading yang sudah disediakan oleh Python.
